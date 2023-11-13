@@ -127,17 +127,17 @@ func generateUserProfiles(
 
 	profiles := []tailcfg.UserProfile{}
 	for _, user := range userMap {
-		displayName := user.Name
+		loginName := user.Name
 
 		if baseDomain != "" {
-			displayName = fmt.Sprintf("%s@%s", user.Name, baseDomain)
+			loginName = fmt.Sprintf("%s@%s", user.Name, baseDomain)
 		}
 
 		profiles = append(profiles,
 			tailcfg.UserProfile{
 				ID:          tailcfg.UserID(user.ID),
-				LoginName:   user.Name,
-				DisplayName: displayName,
+				LoginName:   loginName,
+				DisplayName: user.Name,
 			})
 	}
 
